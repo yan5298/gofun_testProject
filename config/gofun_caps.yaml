@@ -5,8 +5,9 @@ udid: OR5LI7GY99999999
 #app: D:\\AppiumTraining\study_action\mymoney.apk
 appname: JuFan-debug-1.0.2-216-20190521.apk
 appPackage: com.guagua.live.testint
-appActivity: com.guagua.live.ui.home.MainActivity
-noReset: False
+appActivity: com.guagua.live.ui.home.SplashActivity
+#appActivity: com.guagua.live.ui.home.MainActivity
+noReset: True
 unicodeKeyboard: True
 resetKeyboard: True
 ip: 127.0.0.1
