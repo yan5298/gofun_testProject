@@ -9,13 +9,16 @@ import json
 import requests
 
 class LoginView(BaseView):
+    #选择手机号登录
     phone_login = (By.ID, 'lb_phone')
-
+    google_login = (By.ID, 'lb_google')
+    twitter_login = (By.ID, 'lb_twitter')
+    #手机号登录元素
     et_login_phonenum = (By.ID, 'com.guagua.live.testint:id/et_login_phonenum')
     btn_login_sendcode = (By.ID, 'com.guagua.live.testint:id/btn_login_sendcode')
     phonevery = (By.ID, 'com.guagua.live.testint:id/et_login_phonevery')
     btn_login_phone = (By.ID, 'com.guagua.live.testint:id/btn_login_phone')
-    # main_type = (By.XPATH, '(//android.widget.ImageView[@content-desc=\"首页\"])[1]')
+
 
     def login_action(self, username):
         time.sleep(10)
