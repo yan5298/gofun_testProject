@@ -78,4 +78,4 @@ if __name__ == '__main__':
     com.check_cancelBtn()
     time.sleep(5)
     com.swipeLeft()
-    com.getScreenShot(startApp)
+    com.getScreenShot('startApp')
