@@ -69,6 +69,6 @@ if __name__ == '__main__':
     l = LoginView(driver)
     l.login_action('17600629988')
     time.sleep(5)
-    module = 'phone_login'
+    # module = 'phone_login'
     common = Common(driver)
-    common.getScreenShot(module)
+    common.getScreenShot('phone_login')
