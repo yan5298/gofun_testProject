@@ -60,6 +60,7 @@ class Common(BaseView):
         image_file = os.path.dirname(os.path.dirname(__file__))+'/screenshots/%s_%s.png' %(module, time)
         logging.info('get %s screenshot' %module)
         self.driver.get_screenshot_as_file(image_file)
+        print(image_file)
 
     def check_market_ad(self):
         logging.info("====check_market_ad====")
@@ -75,7 +76,7 @@ if __name__ == '__main__':
     driver = appium_desird()
     com = Common(driver)
     time.sleep(5)
-    com.check_cancelBtn()
-    time.sleep(5)
-    com.swipeLeft()
+    # com.check_cancelBtn()
+    # time.sleep(5)
+    # com.swipeLeft()
     com.getScreenShot('startApp')
