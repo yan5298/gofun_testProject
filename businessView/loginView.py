@@ -19,6 +19,8 @@ class LoginView(BaseView):
     phonevery = (By.ID, 'com.guagua.live.testint:id/et_login_phonevery')
     btn_login_phone = (By.ID, 'com.guagua.live.testint:id/btn_login_phone')
 
+    home_btn = (By.ID, 'com.guagua.live.testint:id/rb_live')
+
 
     def login_action(self, username):
         time.sleep(10)
@@ -35,7 +37,7 @@ class LoginView(BaseView):
         self.driver.implicitly_wait(3)
         #点击获取验证码
         self.driver.find_element(*self.btn_login_sendcode).click()
-        time.sleep(5)
+        time.sleep(4)
         #获取验证码
         self.reponse = requests.post("https://m.19gofun.com/cgi/login/test?iwant=code&data=86" + username + "")
         self.ret = json.loads(self.reponse.content.decode())
@@ -47,9 +49,21 @@ class LoginView(BaseView):
 
         #点击登录按钮
         self.driver.find_element(*self.btn_login_phone).click()
-        self.driver.implicitly_wait(3)
+        self.driver.implicitly_wait(2)
 
         logging.info('=======login finshed====')
+
+        try:
+            element = self.driver.find_element(*self.home_btn)
+        except NoSuchElementException:
+            logging.info("fail")
+        else:
+            element.click()
+            logging.info("sucess")
+
+
+
+
 
 
 if __name__ == '__main__':
@@ -57,3 +71,4 @@ if __name__ == '__main__':
     driver = appium_desird()
     l = LoginView(driver)
     l.login_action('17600629988')
+    Common.getScreenShot(phonelogin)
