@@ -4,7 +4,7 @@ from selenium.common.exceptions import NoSuchElementException
 import logging
 from selenium.webdriver.common.by import By
 import time,os
-
+import csv
 
 class Common(BaseView):
     # cancelBtn = (By.ID, 'android:id/button2')
@@ -71,12 +71,22 @@ class Common(BaseView):
     #     else:
     #         logging.info('close marker ad')
     #         element.click()
-
+    def get_csv_data(self,csv_file,line):
+        logging.info('===get csv data===')
+        with open(csv_file,'r',encoding='utf-8-sig') as file:
+            reader = csv.reader(file)
+            for index,row in enumerate(reader,1):
+                if index == line:
+                    return row
+    # csv_file='../data/account.csv'
+    # data=get_csv_data(csv_file,2)
+    # print(data)
 if __name__ == '__main__':
     driver = appium_desird()
     com = Common(driver)
-    time.sleep(5)
+    # time.sleep(5)
     # com.check_cancelBtn()
     # time.sleep(5)
     # com.swipeLeft()
-    com.getScreenShot('startApp')
+    # com.getScreenShot('startApp')
+
